@@ -6,8 +6,8 @@
     {
       "id": "coflix",
       "name": "Coflix",
-      "description": "Recherche web générale.",
-      "icon": "icons/Coflix.png",
+      "description": "Recherche Séries, Films.",
+      "icon": "icons/coflix.png",
       "homeUrl": "https://www.coflix.click/",
       "searchUrl": "https://www.coflix.click/search?q={query}",
       "domain": "coflix.click",
