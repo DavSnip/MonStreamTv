@@ -1,0 +1,68 @@
+{
+  "appName": "Rechercher",
+  "subtitle": "Recherche intelligente multi-sites : seuls les sites avec au moins un résultat détecté s'affichent.",
+  "backendUrl": "https://TON-WORKER.TON-SOUS-DOMAINE.workers.dev/search",
+  "sites": [
+    {
+      "id": "google",
+      "name": "Google",
+      "description": "Recherche web générale.",
+      "icon": "icons/google.png",
+      "homeUrl": "https://www.google.com/",
+      "searchUrl": "https://www.google.com/search?q={query}",
+      "domain": "google.com",
+      "selectedByDefault": true,
+      "alwaysShow": true
+    },
+    {
+      "id": "youtube",
+      "name": "YouTube",
+      "description": "Vidéos et chaînes.",
+      "icon": "icons/youtube.png",
+      "homeUrl": "https://www.youtube.com/",
+      "searchUrl": "https://www.youtube.com/results?search_query={query}",
+      "domain": "youtube.com",
+      "selectedByDefault": true
+    },
+    {
+      "id": "leboncoin",
+      "name": "Leboncoin",
+      "description": "Annonces et occasions.",
+      "icon": "icons/leboncoin.png",
+      "homeUrl": "https://www.leboncoin.fr/",
+      "searchUrl": "https://www.leboncoin.fr/recherche?text={query}",
+      "domain": "leboncoin.fr",
+      "selectedByDefault": true
+    },
+    {
+      "id": "amazon",
+      "name": "Amazon",
+      "description": "Produits et shopping.",
+      "icon": "icons/amazon.png",
+      "homeUrl": "https://www.amazon.fr/",
+      "searchUrl": "https://www.amazon.fr/s?k={query}",
+      "domain": "amazon.fr",
+      "selectedByDefault": false
+    },
+    {
+      "id": "wikipedia",
+      "name": "Wikipédia",
+      "description": "Articles encyclopédiques.",
+      "icon": "icons/wikipedia.png",
+      "homeUrl": "https://fr.wikipedia.org/",
+      "searchUrl": "https://fr.wikipedia.org/w/index.php?search={query}",
+      "domain": "fr.wikipedia.org",
+      "selectedByDefault": false
+    },
+    {
+      "id": "reddit",
+      "name": "Reddit",
+      "description": "Discussions et communautés.",
+      "icon": "icons/reddit.png",
+      "homeUrl": "https://www.reddit.com/",
+      "searchUrl": "https://www.reddit.com/search/?q={query}",
+      "domain": "reddit.com",
+      "selectedByDefault": false
+    }
+  ]
+}
