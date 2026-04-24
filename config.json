@@ -55,13 +55,13 @@
       "selectedByDefault": false
     },
     {
-      "id": "frenchstream",
-      "name": "FrenchStream",
+      "id": "movix",
+      "name": "Movix",
       "description": "Recherche Séries, Films.",
-      "icon": "icons/frenchstream.png",
-      "homeUrl": "https://fs14.lol/",
-      "searchUrl": "https://fs14.lol/index.php?do=search&subaction=search&story={query}",
-      "domain": "fs14.lol",
+      "icon": "icons/movix.png",
+      "homeUrl": "https://movix.cash/",
+      "searchUrl": "https://movix.cash/index.php?do=search&subaction=search&story={query}",
+      "domain": "movix.cash",
       "selectedByDefault": false
     }
   ]
