@@ -49,9 +49,9 @@
       "name": "1jour1film",
       "description": "Recherche Séries, Films.",
       "icon": "icons/1jour1film.png",
-      "homeUrl": "https://1jour1film0426c.site/",
-      "searchUrl": "https://1jour1film0426c.site/?s={query}",
-      "domain": "1jour1film0426c.site",
+      "homeUrl": "https://1jour1film0526.site/",
+      "searchUrl": "https://1jour1film0526.site/?s={query}",
+      "domain": "1jour1film0526.site",
       "selectedByDefault": false
     },
     {
