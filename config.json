@@ -4,13 +4,13 @@
   "backendUrl": "https://TON-WORKER.TON-SOUS-DOMAINE.workers.dev/search",
   "sites": [
     {
-      "id": "google",
-      "name": "Google",
+      "id": "coflix",
+      "name": "Coflix",
       "description": "Recherche web générale.",
-      "icon": "icons/google.png",
-      "homeUrl": "https://www.google.com/",
-      "searchUrl": "https://www.google.com/search?q={query}",
-      "domain": "google.com",
+      "icon": "icons/Coflix.png",
+      "homeUrl": "https://www.coflix.click/",
+      "searchUrl": "https://www.coflix.click/search?q={query}",
+      "domain": "coflix.click",
       "selectedByDefault": true,
       "alwaysShow": true
     },
