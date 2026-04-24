@@ -60,7 +60,7 @@
       "description": "Recherche Séries, Films.",
       "icon": "icons/movix.png",
       "homeUrl": "https://movix.cash/",
-      "searchUrl": "https://movix.cash/index.php?do=search&subaction=search&story={query}",
+      "searchUrl": "https://movix.cash/?s={query}",
       "domain": "movix.cash",
       "selectedByDefault": false
     },
@@ -70,7 +70,7 @@
       "description": "Recherche Séries, Films.",
       "icon": "icons/frembed.png",
       "homeUrl": "https://frembed.cyou/",
-      "searchUrl": "https://frembed.cyou/index.php?do=search&subaction=search&story={query}",
+      "searchUrl": "https://frembed.cyou/?s={query}",
       "domain": "frembed.cyou",
       "selectedByDefault": false
     }
