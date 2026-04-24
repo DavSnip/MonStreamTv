@@ -8,7 +8,7 @@
   <meta name="description" content="" />
   <meta name="theme-color" content="#0b1220" />
 
- <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=6" />
 </head>
 
 <body>
@@ -23,16 +23,12 @@
           <span id="configStatus">Chargement…</span>
         </span>
 
-        <button type="button" id="themeToggle" class="icon-btn" aria-label="Changer le thème">
-          ☼
-        </button>
+        <button type="button" id="themeToggle" class="icon-btn" aria-label="Changer le thème">☼</button>
       </header>
 
       <section class="hero">
         <p class="eyebrow"></p>
-
         <h1 id="pageTitle">Rechercher</h1>
-
         <p id="pageSubtitle" class="subtitle"></p>
       </section>
 
@@ -41,7 +37,6 @@
 
         <div class="search-input-wrap">
           <span class="search-icon">⌕</span>
-
           <input
             id="searchInput"
             type="text"
@@ -51,18 +46,11 @@
         </div>
 
         <div class="search-actions">
-          <button type="submit" class="primary-btn" id="submitBtn">
-            Rechercher
-          </button>
-
-          <button type="button" id="clearButton" class="secondary-btn">
-            Effacer
-          </button>
+          <button type="submit" class="primary-btn" id="submitBtn">Rechercher</button>
+          <button type="button" id="clearButton" class="secondary-btn">Effacer</button>
         </div>
 
-        <p class="helper-text">
-          Les résultats apparaissent pour les sites sélectionnés.
-        </p>
+        <p class="helper-text">Les résultats apparaissent pour les sites sélectionnés.</p>
       </form>
 
       <section id="resultsPanel" class="results-panel hidden">
@@ -72,9 +60,7 @@
             <p id="resultsInfo">Aucune recherche lancée.</p>
           </div>
 
-          <button type="button" id="openAllBtn" class="chip-btn">
-            Ouvrir tout
-          </button>
+          <button type="button" id="openAllBtn" class="chip-btn">Ouvrir tout</button>
         </div>
 
         <div id="resultsList" class="results-list"></div>
@@ -115,9 +101,7 @@
             <p class="site-description"></p>
           </div>
 
-          <a class="site-link" target="_blank" rel="noopener noreferrer">
-            Ouvrir
-          </a>
+          <a class="site-link" target="_blank" rel="noopener noreferrer">Ouvrir</a>
         </div>
       </div>
     </label>
@@ -132,14 +116,12 @@
         <p class="result-url"></p>
       </div>
 
-      <a class="result-action" target="_blank" rel="noopener noreferrer">
-        Voir les résultats
-      </a>
+      <a class="result-action" target="_blank" rel="noopener noreferrer">Voir les résultats</a>
     </article>
   </template>
 
   <div class="author">SnipDav</div>
 
-  <script src="script.js?v=5"></script>
+  <script src="script.js?v=6"></script>
 </body>
 </html>
