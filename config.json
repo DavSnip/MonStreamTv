@@ -1,6 +1,6 @@
 {
   "appName": "Rechercher",
-  "subtitle": "Recherche intelligente multi-sites : seuls les sites avec au moins un résultat détecté s'affichent.",
+  "subtitle": "",
   "backendUrl": "https://TON-WORKER.TON-SOUS-DOMAINE.workers.dev/search",
   "sites": [
     {
