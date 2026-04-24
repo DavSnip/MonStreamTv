@@ -3,9 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
   <title>Rechercher</title>
   <meta name="description" content="Recherche multi-sites avec interface style app mobile." />
   <meta name="theme-color" content="#0b1220" />
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css?v=4" />
 </head>
 
@@ -14,28 +17,37 @@
 
   <main class="phone-shell">
     <section class="app-card">
+
+      <!-- TOP BAR -->
       <header class="topbar">
         <span class="app-pill">
           <span class="status-dot"></span>
           <span id="configStatus">Chargement…</span>
         </span>
 
-        <button type="button" id="themeToggle" class="icon-btn" aria-label="Changer le thème">☼</button>
+        <button type="button" id="themeToggle" class="icon-btn" aria-label="Changer le thème">
+          ☼
+        </button>
       </header>
 
+      <!-- HERO -->
       <section class="hero">
         <p class="eyebrow">Multi recherche</p>
+
         <h1 id="pageTitle">Rechercher</h1>
+
         <p id="pageSubtitle" class="subtitle">
-          Sélectionne tes sites, lance une recherche, puis ouvre les résultats.
+          Sélectionne tes sites puis lance ta recherche.
         </p>
       </section>
 
+      <!-- SEARCH -->
       <form id="searchForm" class="search-card">
         <label for="searchInput" class="sr-only">Votre recherche</label>
 
         <div class="search-input-wrap">
           <span class="search-icon">⌕</span>
+
           <input
             id="searchInput"
             type="text"
@@ -45,15 +57,21 @@
         </div>
 
         <div class="search-actions">
-          <button type="submit" class="primary-btn" id="submitBtn">Rechercher</button>
-          <button type="button" id="clearButton" class="secondary-btn">Effacer</button>
+          <button type="submit" class="primary-btn" id="submitBtn">
+            Rechercher
+          </button>
+
+          <button type="button" id="clearButton" class="secondary-btn">
+            Effacer
+          </button>
         </div>
 
         <p class="helper-text">
-          Les lignes apparaissent pour les sites que tu as sélectionnés.
+          Les résultats apparaissent pour les sites sélectionnés.
         </p>
       </form>
 
+      <!-- RESULTS -->
       <section id="resultsPanel" class="results-panel hidden">
         <div class="results-head">
           <div>
@@ -61,12 +79,15 @@
             <p id="resultsInfo">Aucune recherche lancée.</p>
           </div>
 
-          <button type="button" id="openAllBtn" class="chip-btn">Ouvrir tout</button>
+          <button type="button" id="openAllBtn" class="chip-btn">
+            Ouvrir tout
+          </button>
         </div>
 
         <div id="resultsList" class="results-list"></div>
       </section>
 
+      <!-- SITES -->
       <section class="section-head">
         <div>
           <h2>Sites de recherche</h2>
@@ -81,12 +102,15 @@
 
       <section id="siteGrid" class="site-grid" aria-live="polite"></section>
 
+      <!-- FOOTER -->
       <footer class="footer-note">
         Les sites sont modifiables dans <code>config.json</code>.
       </footer>
+
     </section>
   </main>
 
+  <!-- TEMPLATE SITE -->
   <template id="siteCardTemplate">
     <label class="site-card">
       <input class="site-checkbox" type="checkbox" />
@@ -103,12 +127,15 @@
             <p class="site-description"></p>
           </div>
 
-          <a class="site-link" target="_blank" rel="noopener noreferrer">Ouvrir</a>
+          <a class="site-link" target="_blank" rel="noopener noreferrer">
+            Ouvrir
+          </a>
         </div>
       </div>
     </label>
   </template>
 
+  <!-- TEMPLATE RESULT -->
   <template id="resultItemTemplate">
     <article class="result-item">
       <img class="result-logo" alt="" />
@@ -118,12 +145,16 @@
         <p class="result-url"></p>
       </div>
 
-      <a class="result-action" target="_blank" rel="noopener noreferrer">Voir les résultats</a>
+      <a class="result-action" target="_blank" rel="noopener noreferrer">
+        Voir les résultats
+      </a>
     </article>
   </template>
 
+  <!-- SIGNATURE -->
   <div class="author">SnipDav</div>
 
+  <!-- JS -->
   <script src="script.js?v=4"></script>
 </body>
 </html>
