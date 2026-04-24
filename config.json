@@ -60,7 +60,7 @@
       "description": "Recherche Séries, Films.",
       "icon": "icons/movix.png",
       "homeUrl": "https://movix.cash/",
-      "searchUrl": "https://movix.cash/?s={query}",
+      "searchUrl": "https://movix.cash/search?q={query}",
       "domain": "movix.cash",
       "selectedByDefault": false
     },
