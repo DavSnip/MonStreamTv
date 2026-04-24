@@ -70,7 +70,7 @@
       "description": "Recherche Séries, Films.",
       "icon": "icons/frembed.png",
       "homeUrl": "https://frembed.cyou/",
-      "searchUrl": "https://frembed.cyou/search?q={query}",
+      "searchUrl": "https://frembed.cyou/search?query={query}",
       "domain": "frembed.cyou",
       "selectedByDefault": false
     }
