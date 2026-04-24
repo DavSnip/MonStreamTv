@@ -63,6 +63,16 @@
       "searchUrl": "https://movix.cash/index.php?do=search&subaction=search&story={query}",
       "domain": "movix.cash",
       "selectedByDefault": false
+    },
+     {
+      "id": "frembed",
+      "name": "Frembed",
+      "description": "Recherche Séries, Films.",
+      "icon": "icons/frembed.png",
+      "homeUrl": "https://frembed.cyou/",
+      "searchUrl": "https://frembed.cyou/index.php?do=search&subaction=search&story={query}",
+      "domain": "frembed.cyou",
+      "selectedByDefault": false
     }
   ]
 }
