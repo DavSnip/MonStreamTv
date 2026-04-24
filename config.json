@@ -11,7 +11,7 @@
       "homeUrl": "https://www.coflix.click/",
       "searchUrl": "https://coflix.click/?s={query}",
       "domain": "coflix.click",
-      "selectedByDefault": true,
+      "selectedByDefault": false,
       "alwaysShow": true
     },
     {
@@ -70,7 +70,7 @@
       "description": "Recherche Séries, Films.",
       "icon": "icons/frembed.png",
       "homeUrl": "https://frembed.cyou/",
-      "searchUrl": "https://frembed.cyou/?s={query}",
+      "searchUrl": "https://frembed.cyou/search?q={query}",
       "domain": "frembed.cyou",
       "selectedByDefault": false
     }
