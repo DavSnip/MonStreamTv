@@ -20,7 +20,7 @@
       "description": "Recherche Séries, Films.",
       "icon": "icons/papadustream.png",
       "homeUrl": "https://papadustream.singles/",
-      "searchUrl": "https://papadustream.singles/search?q={query}",
+      "searchUrl": "https://papadustream.singles/?s={query}",
       "domain": "papadustream.singles",
       "selectedByDefault": false
     },
@@ -30,7 +30,7 @@
       "description": "Recherche Séries, Films.",
       "icon": "icons/flemmix.png",
       "homeUrl": "https://flemmix.wales/",
-      "searchUrl": "https://flemmix.wales/search?q={query}",
+      "searchUrl": "https://flemmix.wales/?s={query},
       "domain": "flemmix.wales",
       "selectedByDefault": false
     },
@@ -40,7 +40,7 @@
       "description": "Recherche Séries, Films.",
       "icon": "icons/dulourd.png",
       "homeUrl": "https://dulourd.cash/",
-      "searchUrl": "https://dulourd.cash/s?k={query}",
+      "searchUrl": "https://dulourd.cash/?s={query},
       "domain": "dulourd.cash",
       "selectedByDefault": false
     },
@@ -50,7 +50,7 @@
       "description": "Recherche Séries, Films.",
       "icon": "icons/1jour1film.png",
       "homeUrl": "https://1jour1film0426c.site/",
-      "searchUrl": "https://1jour1film0426c.site/search?q={query}",
+      "searchUrl": "https://1jour1film0426c.site/?s={query},
       "domain": "1jour1film0426c.site",
       "selectedByDefault": false
     },
@@ -60,7 +60,7 @@
       "description": "Recherche Séries, Films.",
       "icon": "icons/frenchstream.png",
       "homeUrl": "https://fs14.lol/",
-      "searchUrl": "https://fs14.lol/search?q={query}",
+      "searchUrl": "https://fs14.lol/?s={query},
       "domain": "fs14.lol",
       "selectedByDefault": false
     }
