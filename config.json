@@ -19,8 +19,8 @@
       "name": "Papadustream",
       "description": "Recherche Séries, Films.",
       "icon": "icons/papadustream.png",
-      "homeUrl": "https://www.papadustream.singles/",
-      "searchUrl": "https://www.papadustream.singles/results?search_query={query}",
+      "homeUrl": "https://papadustream.singles/",
+      "searchUrl": "https://papadustream.singles/results?search_query={query}",
       "domain": "papadustream.singles",
       "selectedByDefault": false
     },
@@ -29,8 +29,8 @@
       "name": "Flemmix",
       "description": "Recherche Séries, Films.",
       "icon": "icons/flemmix.png",
-      "homeUrl": "https://www.flemmix.wales/",
-      "searchUrl": "https://www.flemmix.wales/recherche?text={query}",
+      "homeUrl": "https://flemmix.wales/",
+      "searchUrl": "https://flemmix.wales/recherche?text={query}",
       "domain": "flemmix.wales",
       "selectedByDefault": false
     },
@@ -39,8 +39,8 @@
       "name": "Dulourd",
       "description": "Recherche Séries, Films.",
       "icon": "icons/dulourd.png",
-      "homeUrl": "https://www.dulourd.cash/",
-      "searchUrl": "https://www.dulourd.cash/s?k={query}",
+      "homeUrl": "https://dulourd.cash/",
+      "searchUrl": "https://dulourd.cash/s?k={query}",
       "domain": "dulourd.cash",
       "selectedByDefault": false
     },
@@ -49,8 +49,8 @@
       "name": "1jour1film",
       "description": "Recherche Séries, Films.",
       "icon": "icons/1jour1film.png",
-      "homeUrl": "https://www.1jour1film0426c.site/",
-      "searchUrl": "https://www.1jour1film0426c.site/w/index.php?search={query}",
+      "homeUrl": "https://1jour1film0426c.site/",
+      "searchUrl": "https://1jour1film0426c.site/w/index.php?search={query}",
       "domain": "1jour1film0426c.site",
       "selectedByDefault": false
     },
@@ -59,8 +59,8 @@
       "name": "FrenchStream",
       "description": "Recherche Séries, Films.",
       "icon": "icons/frenchstream.png",
-      "homeUrl": "https://www.fs14.lol/",
-      "searchUrl": "https://www.fs14.lol/search/?q={query}",
+      "homeUrl": "https://fs14.lol/",
+      "searchUrl": "https://fs14.lol/search/?q={query}",
       "domain": "fs14.lol",
       "selectedByDefault": false
     }
