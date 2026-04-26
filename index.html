@@ -11,19 +11,20 @@
   <link rel="icon" type="image/png" href="logo.png" />
   <link rel="apple-touch-icon" href="logo.png" />
 
-  <link rel="stylesheet" href="style.css?v=8" />
+  <link rel="stylesheet" href="style.css?v=9" />
 </head>
 
 <body>
 
-  <!-- SON INTRO -->
   <audio id="introSound" preload="auto">
     <source src="netflix-sound.mp3" type="audio/mpeg" />
   </audio>
 
-  <!-- INTRO STYLE NETFLIX -->
   <div id="introScreen" class="intro-screen">
-    <img src="logo.png" alt="Logo MonStreamTv" class="intro-logo" />
+    <div class="intro-content">
+      <img src="logo.png" alt="Logo MonStreamTv" class="intro-logo" />
+      <p class="intro-text">Touchez pour démarrer</p>
+    </div>
   </div>
 
   <div class="bg-gradient"></div>
@@ -140,25 +141,39 @@
 
   <div class="author">SnipDav</div>
 
-  <script src="script.js?v=8"></script>
+  <script src="script.js?v=9"></script>
 
   <script>
     window.addEventListener("load", () => {
+      const introScreen = document.getElementById("introScreen");
+      const mainPage = document.getElementById("mainPage");
       const introSound = document.getElementById("introSound");
 
-      if (introSound) {
-        introSound.volume = 0.8;
-        introSound.currentTime = 0;
+      let introStarted = false;
 
-        introSound.play().catch(() => {
-          console.log("Le navigateur a bloqué la lecture automatique du son.");
-        });
+      function startIntro() {
+        if (introStarted) return;
+        introStarted = true;
+
+        introScreen.classList.add("intro-started");
+
+        if (introSound) {
+          introSound.volume = 0.8;
+          introSound.currentTime = 0;
+
+          introSound.play().catch(() => {
+            console.log("Le navigateur a bloqué le son.");
+          });
+        }
+
+        setTimeout(() => {
+          introScreen.classList.add("intro-hidden");
+          mainPage.classList.remove("page-hidden");
+        }, 2200);
       }
 
-      setTimeout(() => {
-        document.getElementById("introScreen").classList.add("intro-hidden");
-        document.getElementById("mainPage").classList.remove("page-hidden");
-      }, 2200);
+      introScreen.addEventListener("click", startIntro, { once: true });
+      introScreen.addEventListener("touchstart", startIntro, { once: true });
     });
   </script>
 
