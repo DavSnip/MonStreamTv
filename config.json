@@ -80,7 +80,7 @@
       "description": "Recherche Animes.",
       "icon": "icons/voiranime.png",
       "homeUrl": "https://voiranime.rip/",
-      "searchUrl": "https://voiranime.rip/search?query={query}",
+      "searchUrl": "https://voiranime.rip/search.php?q={query}",
       "domain": "voiranime.rip",
       "selectedByDefault": false
     }
