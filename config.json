@@ -69,9 +69,19 @@
       "name": "Frembed",
       "description": "Recherche Séries, Films.",
       "icon": "icons/frembed.png",
-      "homeUrl": "https://frembed.cyou/",
-      "searchUrl": "https://frembed.cyou/search?query={query}",
-      "domain": "frembed.cyou",
+      "homeUrl": "https://frembed.one/",
+      "searchUrl": "https://frembed.one/search?query={query}",
+      "domain": "frembed.one",
+      "selectedByDefault": false
+    },
+    {
+      "id": "voiranime",
+      "name": "Voiranime",
+      "description": "Recherche Animes.",
+      "icon": "icons/voiranime.png",
+      "homeUrl": "https://voiranime.rip/",
+      "searchUrl": "https://voiranime.rip/search?query={query}",
+      "domain": "voiranime.rip",
       "selectedByDefault": false
     }
   ]
