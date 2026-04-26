@@ -47,6 +47,64 @@ body.light {
   background: linear-gradient(180deg, #dbeafe 0%, #eff6ff 100%);
 }
 
+/* INTRO STYLE NETFLIX */
+.intro-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #05070d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.intro-logo {
+  width: 190px;
+  max-width: 72vw;
+  opacity: 0;
+  transform: scale(0.6);
+  object-fit: contain;
+  animation: netflixLogo 2.2s ease forwards;
+  filter: drop-shadow(0 0 35px rgba(255, 0, 0, 0.55));
+}
+
+@keyframes netflixLogo {
+  0% {
+    opacity: 0;
+    transform: scale(0.55);
+    filter: blur(14px) drop-shadow(0 0 0 rgba(255, 0, 0, 0));
+  }
+
+  30% {
+    opacity: 1;
+    transform: scale(1.08);
+    filter: blur(0) drop-shadow(0 0 38px rgba(255, 0, 0, 0.75));
+  }
+
+  65% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0) drop-shadow(0 0 30px rgba(255, 0, 0, 0.65));
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.28);
+    filter: blur(8px) drop-shadow(0 0 65px rgba(255, 0, 0, 0.9));
+  }
+}
+
+.intro-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.page-hidden {
+  opacity: 0;
+}
+
 .bg-gradient {
   position: fixed;
   inset: 0;
@@ -62,6 +120,7 @@ body.light {
   width: min(100%, 520px);
   margin: 0 auto;
   padding: 18px 14px 48px;
+  transition: opacity 0.6s ease;
 }
 
 .app-card {
@@ -90,6 +149,24 @@ body.light {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+}
+
+/* LOGO DANS LA PAGE */
+.brand-zone {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.page-logo {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--line);
+  padding: 4px;
+  filter: drop-shadow(0 0 14px rgba(255, 255, 255, 0.18));
 }
 
 .app-pill {
@@ -481,6 +558,21 @@ body.light .search-input-wrap {
     border-radius: 30px;
   }
 
+  .brand-zone {
+    gap: 8px;
+  }
+
+  .page-logo {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+  }
+
+  .app-pill {
+    font-size: .78rem;
+    padding: 9px 10px;
+  }
+
   .site-grid {
     grid-template-columns: 1fr;
   }
@@ -541,5 +633,9 @@ body.light .search-input-wrap {
 
   .site-card-inner {
     min-height: 160px;
+  }
+
+  .intro-logo {
+    width: 250px;
   }
 }
