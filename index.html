@@ -8,30 +8,47 @@
   <meta name="description" content="" />
   <meta name="theme-color" content="#0b1220" />
 
-  <link rel="stylesheet" href="style.css?v=6" />
+  <!-- Favicon (logo onglet navigateur) -->
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="apple-touch-icon" href="logo.png" />
+
+  <link rel="stylesheet" href="style.css?v=7" />
 </head>
 
 <body>
+
+  <!-- INTRO STYLE NETFLIX -->
+  <div id="introScreen" class="intro-screen">
+    <img src="logo.png" alt="Logo MonStreamTv" class="intro-logo" />
+  </div>
+
   <div class="bg-gradient"></div>
  
-  <main class="phone-shell">
+  <main id="mainPage" class="phone-shell page-hidden">
     <section class="app-card">
 
+      <!-- HEADER -->
       <header class="topbar">
-        <span class="app-pill">
-          <span class="status-dot"></span>
-          <span id="configStatus">Chargement…</span>
-        </span>
+        <div class="brand-zone">
+          <img src="logo.png" alt="MonStreamTv" class="page-logo" />
+
+          <span class="app-pill">
+            <span class="status-dot"></span>
+            <span id="configStatus">Chargement…</span>
+          </span>
+        </div>
 
         <button type="button" id="themeToggle" class="icon-btn" aria-label="Changer le thème">☼</button>
       </header>
 
+      <!-- HERO -->
       <section class="hero">
         <p class="eyebrow"></p>
         <h1 id="pageTitle">Rechercher</h1>
         <p id="pageSubtitle" class="subtitle"></p>
       </section>
 
+      <!-- SEARCH -->
       <form id="searchForm" class="search-card">
         <label for="searchInput" class="sr-only">Votre recherche</label>
 
@@ -53,6 +70,7 @@
         <p class="helper-text">Les résultats apparaissent pour les sites sélectionnés.</p>
       </form>
 
+      <!-- RESULTS -->
       <section id="resultsPanel" class="results-panel hidden">
         <div class="results-head">
           <div>
@@ -66,6 +84,7 @@
         <div id="resultsList" class="results-list"></div>
       </section>
 
+      <!-- SITES -->
       <section class="section-head">
         <div>
           <h2>Sites de recherche</h2>
@@ -85,6 +104,7 @@
     </section>
   </main>
 
+  <!-- TEMPLATE SITE -->
   <template id="siteCardTemplate">
     <label class="site-card">
       <input class="site-checkbox" type="checkbox" />
@@ -107,6 +127,7 @@
     </label>
   </template>
 
+  <!-- TEMPLATE RESULT -->
   <template id="resultItemTemplate">
     <article class="result-item">
       <img class="result-logo" alt="" />
@@ -122,6 +143,17 @@
 
   <div class="author">SnipDav</div>
 
-  <script src="script.js?v=6"></script>
+  <script src="script.js?v=7"></script>
+
+  <!-- SCRIPT INTRO -->
+  <script>
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.getElementById("introScreen").classList.add("intro-hidden");
+        document.getElementById("mainPage").classList.remove("page-hidden");
+      }, 2200);
+    });
+  </script>
+
 </body>
 </html>
