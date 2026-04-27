@@ -31,8 +31,22 @@ function encodeQuery(query) {
   return encodeURIComponent(query.trim());
 }
 
+function normalizeIconPath(icon) {
+  if (!icon) return "logo.png";
+
+  if (
+    icon.startsWith("http") ||
+    icon.startsWith("icons/") ||
+    icon.startsWith("./icons/")
+  ) {
+    return icon;
+  }
+
+  return `icons/${icon}`;
+}
+
 function buildSearchUrl(site, query) {
-  return site.searchUrl.replace('{query}', encodeQuery(query));
+  return site.searchUrl.replace("{query}", encodeQuery(query));
 }
 
 function setStatus(text, error = false) {
@@ -40,7 +54,10 @@ function setStatus(text, error = false) {
     el.configStatus.textContent = text;
   }
 
-  document.querySelector('.status-dot')?.classList.toggle('error', error);
+  const dot = document.querySelector(".status-dot");
+  if (dot) {
+    dot.classList.toggle("error", error);
+  }
 }
 
 async function loadConfig() {
@@ -48,63 +65,77 @@ async function loadConfig() {
     const response = await fetch(`config.json?v=${Date.now()}`);
 
     if (!response.ok) {
-      throw new Error('config.json introuvable');
+      throw new Error("config.json introuvable");
     }
 
     const config = await response.json();
 
     state.config = config;
+
     state.sites = (config.sites || []).map(site => ({
       ...site,
+      icon: normalizeIconPath(site.icon),
       selected: !!site.selectedByDefault
     }));
 
     if (el.pageTitle) {
-      el.pageTitle.textContent = config.appName || 'Rechercher';
+      el.pageTitle.textContent = config.appName || "Rechercher";
     }
 
     if (el.pageSubtitle) {
-      el.pageSubtitle.textContent = config.subtitle || '';
+      el.pageSubtitle.textContent = config.subtitle || "";
     }
 
-    setStatus('Config OK');
+    setStatus("Config OK");
     renderSites();
+
   } catch (error) {
     console.error(error);
-    setStatus('Erreur config', true);
+    setStatus("Erreur config", true);
 
     if (el.siteGrid) {
-      el.siteGrid.innerHTML = '<p class="helper-text">Impossible de charger config.json.</p>';
+      el.siteGrid.innerHTML = `
+        <p class="helper-text">
+          Impossible de charger config.json. Vérifie que le fichier est bien à côté de index.html.
+        </p>
+      `;
     }
   }
 }
 
 function renderSites() {
-  el.siteGrid.innerHTML = '';
+  if (!el.siteGrid || !el.siteTemplate) return;
+
+  el.siteGrid.innerHTML = "";
 
   state.sites.forEach(site => {
     const node = el.siteTemplate.content.cloneNode(true);
 
-    const checkbox = node.querySelector('.site-checkbox');
-    const logo = node.querySelector('.site-logo');
-    const name = node.querySelector('.site-name');
-    const description = node.querySelector('.site-description');
-    const link = node.querySelector('.site-link');
+    const checkbox = node.querySelector(".site-checkbox");
+    const logo = node.querySelector(".site-logo");
+    const name = node.querySelector(".site-name");
+    const description = node.querySelector(".site-description");
+    const link = node.querySelector(".site-link");
 
     checkbox.checked = site.selected;
 
-    logo.style.backgroundImage = `url('${site.icon}')`;
-    logo.style.backgroundSize = 'contain';
-    logo.style.backgroundPosition = 'center';
-    logo.style.backgroundRepeat = 'no-repeat';
+    logo.src = site.icon;
+    logo.alt = site.name;
+    logo.loading = "lazy";
 
-    name.textContent = site.name;
-    description.textContent = site.description || '';
+    logo.onerror = () => {
+      logo.src = "logo.png";
+    };
 
-    link.href = site.homeUrl || '#';
-    link.addEventListener('click', e => e.stopPropagation());
+    name.textContent = site.name || "Site";
+    description.textContent = site.description || "";
 
-    checkbox.addEventListener('change', () => {
+    link.href = site.homeUrl || "#";
+    link.addEventListener("click", event => {
+      event.stopPropagation();
+    });
+
+    checkbox.addEventListener("change", () => {
       site.selected = checkbox.checked;
       updateSelectionInfo();
     });
@@ -116,44 +147,58 @@ function renderSites() {
 }
 
 function updateSelectionInfo() {
+  if (!el.selectionInfo) return;
+
   const count = state.sites.filter(site => site.selected).length;
-  el.selectionInfo.textContent = `${count} sélectionné${count > 1 ? 's' : ''}`;
+  el.selectionInfo.textContent = `${count} sélectionné${count > 1 ? "s" : ""}`;
 }
 
 function renderResults(results, query) {
-  el.resultsPanel.classList.remove('hidden');
-  el.resultsList.innerHTML = '';
+  if (!el.resultsPanel || !el.resultsList) return;
+
+  el.resultsPanel.classList.remove("hidden");
+  el.resultsList.innerHTML = "";
 
   state.lastResults = results;
 
   if (!results.length) {
     el.resultsInfo.textContent = `Aucun site sélectionné pour « ${query} ».`;
-    el.resultsList.innerHTML = '<p class="helper-text">Sélectionne au moins un site avant de rechercher.</p>';
+    el.resultsList.innerHTML = `
+      <p class="helper-text">
+        Sélectionne au moins un site avant de rechercher.
+      </p>
+    `;
     return;
   }
 
-  el.resultsInfo.textContent = `${results.length} recherche${results.length > 1 ? 's' : ''} prête${results.length > 1 ? 's' : ''} pour « ${query} ».`;
+  el.resultsInfo.textContent =
+    `${results.length} recherche${results.length > 1 ? "s" : ""} prête${results.length > 1 ? "s" : ""} pour « ${query} ».`;
 
   results.forEach(site => {
     const node = el.resultTemplate.content.cloneNode(true);
 
-    const logo = node.querySelector('.result-logo');
-    const name = node.querySelector('.result-name');
-    const url = node.querySelector('.result-url');
-    const action = node.querySelector('.result-action');
+    const logo = node.querySelector(".result-logo");
+    const name = node.querySelector(".result-name");
+    const url = node.querySelector(".result-url");
+    const action = node.querySelector(".result-action");
 
     const searchUrl = buildSearchUrl(site, query);
 
     logo.src = site.icon;
     logo.alt = site.name;
+    logo.loading = "lazy";
 
-    name.textContent = site.name;
+    logo.onerror = () => {
+      logo.src = "logo.png";
+    };
+
+    name.textContent = site.name || "Site";
     url.textContent = searchUrl;
 
     action.href = searchUrl;
-    action.target = '_blank';
-    action.rel = 'noopener noreferrer';
-    action.textContent = 'Voir les résultats';
+    action.target = "_blank";
+    action.rel = "noopener noreferrer";
+    action.textContent = "Voir les résultats";
 
     el.resultsList.appendChild(node);
   });
@@ -163,72 +208,84 @@ function searchSelectedSites(query) {
   const cleanQuery = query.trim();
 
   if (!cleanQuery) {
-    alert('Tape une recherche avant de lancer.');
+    alert("Tape une recherche avant de lancer.");
     return;
   }
 
   const selectedSites = state.sites.filter(site => site.selected);
 
   if (!selectedSites.length) {
-    alert('Sélectionne au moins un site.');
+    alert("Sélectionne au moins un site.");
     return;
   }
 
   renderResults(selectedSites, cleanQuery);
 }
 
-el.searchForm.addEventListener('submit', event => {
-  event.preventDefault();
-  searchSelectedSites(el.searchInput.value);
-});
-
-el.clearButton.addEventListener('click', () => {
-  el.searchInput.value = '';
-  el.resultsPanel.classList.add('hidden');
-  el.resultsList.innerHTML = '';
-  el.resultsInfo.textContent = '';
-  state.lastResults = [];
-  el.searchInput.focus();
-});
-
-el.selectAllBtn.addEventListener('click', () => {
-  state.sites.forEach(site => {
-    site.selected = true;
+if (el.searchForm) {
+  el.searchForm.addEventListener("submit", event => {
+    event.preventDefault();
+    searchSelectedSites(el.searchInput.value);
   });
+}
 
-  renderSites();
-});
-
-el.unselectAllBtn.addEventListener('click', () => {
-  state.sites.forEach(site => {
-    site.selected = false;
+if (el.clearButton) {
+  el.clearButton.addEventListener("click", () => {
+    el.searchInput.value = "";
+    el.resultsPanel.classList.add("hidden");
+    el.resultsList.innerHTML = "";
+    el.resultsInfo.textContent = "";
+    state.lastResults = [];
+    el.searchInput.focus();
   });
+}
 
-  renderSites();
-});
+if (el.selectAllBtn) {
+  el.selectAllBtn.addEventListener("click", () => {
+    state.sites.forEach(site => {
+      site.selected = true;
+    });
 
-el.openAllBtn.addEventListener('click', () => {
-  const query = el.searchInput.value.trim();
-
-  if (!query) {
-    alert('Tape une recherche avant d’ouvrir les résultats.');
-    return;
-  }
-
-  if (!state.lastResults.length) {
-    alert('Lance d’abord une recherche.');
-    return;
-  }
-
-  state.lastResults.forEach(site => {
-    const searchUrl = buildSearchUrl(site, query);
-    window.open(searchUrl, '_blank', 'noopener,noreferrer');
+    renderSites();
   });
-});
+}
 
-el.themeToggle.addEventListener('click', () => {
-  document.body.classList.toggle('light');
-  el.themeToggle.textContent = document.body.classList.contains('light') ? '☾' : '☼';
-});
+if (el.unselectAllBtn) {
+  el.unselectAllBtn.addEventListener("click", () => {
+    state.sites.forEach(site => {
+      site.selected = false;
+    });
+
+    renderSites();
+  });
+}
+
+if (el.openAllBtn) {
+  el.openAllBtn.addEventListener("click", () => {
+    const query = el.searchInput.value.trim();
+
+    if (!query) {
+      alert("Tape une recherche avant d’ouvrir les résultats.");
+      return;
+    }
+
+    if (!state.lastResults.length) {
+      alert("Lance d’abord une recherche.");
+      return;
+    }
+
+    state.lastResults.forEach(site => {
+      const searchUrl = buildSearchUrl(site, query);
+      window.open(searchUrl, "_blank", "noopener,noreferrer");
+    });
+  });
+}
+
+if (el.themeToggle) {
+  el.themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("light");
+    el.themeToggle.textContent = document.body.classList.contains("light") ? "☾" : "☼";
+  });
+}
 
 loadConfig();
