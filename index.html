@@ -11,15 +11,17 @@
   <link rel="icon" type="image/png" href="logo.png" />
   <link rel="apple-touch-icon" href="logo.png" />
 
-  <link rel="stylesheet" href="style.css?v=9" />
+  <link rel="stylesheet" href="style.css?v=10" />
 </head>
 
 <body>
 
+  <!-- SON INTRO -->
   <audio id="introSound" preload="auto">
     <source src="netflix-sound.mp3" type="audio/mpeg" />
   </audio>
 
+  <!-- INTRO -->
   <div id="introScreen" class="intro-screen">
     <div class="intro-content">
       <img src="logo.png" alt="Logo MonStreamTv" class="intro-logo" />
@@ -28,10 +30,12 @@
   </div>
 
   <div class="bg-gradient"></div>
- 
+
+  <!-- APP -->
   <main id="mainPage" class="phone-shell page-hidden">
     <section class="app-card">
 
+      <!-- HEADER -->
       <header class="topbar">
         <div class="brand-zone">
           <img src="logo.png" alt="MonStreamTv" class="page-logo" />
@@ -45,12 +49,13 @@
         <button type="button" id="themeToggle" class="icon-btn" aria-label="Changer le thème">☼</button>
       </header>
 
+      <!-- HERO -->
       <section class="hero">
-        <p class="eyebrow"></p>
         <h1 id="pageTitle">Rechercher</h1>
         <p id="pageSubtitle" class="subtitle"></p>
       </section>
 
+      <!-- SEARCH -->
       <form id="searchForm" class="search-card">
         <label for="searchInput" class="sr-only">Votre recherche</label>
 
@@ -72,6 +77,7 @@
         <p class="helper-text">Les résultats apparaissent pour les sites sélectionnés.</p>
       </form>
 
+      <!-- RESULTS -->
       <section id="resultsPanel" class="results-panel hidden">
         <div class="results-head">
           <div>
@@ -85,6 +91,7 @@
         <div id="resultsList" class="results-list"></div>
       </section>
 
+      <!-- SITES -->
       <section class="section-head">
         <div>
           <h2>Sites de recherche</h2>
@@ -104,13 +111,15 @@
     </section>
   </main>
 
+  <!-- TEMPLATE SITE -->
   <template id="siteCardTemplate">
     <label class="site-card">
       <input class="site-checkbox" type="checkbox" />
 
       <div class="site-card-inner">
         <div class="site-card-top">
-          <div class="site-logo" aria-hidden="true"></div>
+          <!-- IMPORTANT : les icônes seront injectées depuis script.js -->
+          <img class="site-logo" src="" alt="logo site" />
           <span class="toggle-indicator"></span>
         </div>
 
@@ -126,23 +135,29 @@
     </label>
   </template>
 
+  <!-- TEMPLATE RESULT -->
   <template id="resultItemTemplate">
     <article class="result-item">
-      <img class="result-logo" alt="" />
+      <img class="result-logo" src="" alt="logo" />
 
       <div class="result-copy">
         <h3 class="result-name"></h3>
         <p class="result-url"></p>
       </div>
 
-      <a class="result-action" target="_blank" rel="noopener noreferrer">Voir les résultats</a>
+      <a class="result-action" target="_blank" rel="noopener noreferrer">
+        Voir les résultats
+      </a>
     </article>
   </template>
 
+  <!-- SIGNATURE -->
   <div class="author">SnipDav</div>
 
-  <script src="script.js?v=9"></script>
+  <!-- SCRIPT -->
+  <script src="script.js?v=10"></script>
 
+  <!-- INTRO SCRIPT FIX -->
   <script>
     window.addEventListener("load", () => {
       const introScreen = document.getElementById("introScreen");
@@ -160,14 +175,12 @@
         if (introSound) {
           introSound.volume = 0.8;
           introSound.currentTime = 0;
-
-          introSound.play().catch(() => {
-            console.log("Le navigateur a bloqué le son.");
-          });
+          introSound.play().catch(() => {});
         }
 
         setTimeout(() => {
           introScreen.classList.add("intro-hidden");
+          introScreen.style.display = "none"; // 🔥 FIX BLOCAGE CLIC
           mainPage.classList.remove("page-hidden");
         }, 2200);
       }
