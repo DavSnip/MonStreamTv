@@ -29,9 +29,9 @@
       "name": "Flemmix",
       "description": "Recherche Séries, Films.",
       "icon": "icons/flemmix.png",
-      "homeUrl": "https://flemmix.wales/",
-      "searchUrl": "https://flemmix.wales/index.php?do=search&subaction=search&story={query}",
-      "domain": "flemmix.wales",
+      "homeUrl": "https://flemmix.prof/",
+      "searchUrl": "https://flemmix.prof//index.php?do=search&subaction=search&story={query}",
+      "domain": "flemmix.prof",
       "selectedByDefault": false
     },
     {
