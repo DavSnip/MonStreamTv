@@ -8,9 +8,9 @@
       "name": "Coflix",
       "description": "Recherche Séries, Films.",
       "icon": "icons/coflix.png",
-      "homeUrl": "https://www.coflix.click/",
-      "searchUrl": "https://coflix.click/?s={query}",
-      "domain": "coflix.click",
+      "homeUrl": "https://www.coflix.date/",
+      "searchUrl": "https://coflix.date/?s={query}",
+      "domain": "coflix.date",
       "selectedByDefault": false,
       "alwaysShow": true
     },
