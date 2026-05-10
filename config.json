@@ -19,9 +19,9 @@
       "name": "Papadustream",
       "description": "Recherche Séries, Films.",
       "icon": "icons/papadustream.png",
-      "homeUrl": "https://papadustream.singles/",
-      "searchUrl": "https://papadustream.singles/index.php?do=search&subaction=search&story={query}",
-      "domain": "papadustream.singles",
+      "homeUrl": "https://papadustream.motorcycles/",
+      "searchUrl": "https://papadustream.motorcycles/index.php?do=search&subaction=search&story={query}",
+      "domain": "papadustream.motorcycles",
       "selectedByDefault": false
     },
     {
@@ -29,9 +29,9 @@
       "name": "Flemmix",
       "description": "Recherche Séries, Films.",
       "icon": "icons/flemmix.png",
-      "homeUrl": "https://flemmix.prof/",
-      "searchUrl": "https://flemmix.prof//index.php?do=search&subaction=search&story={query}",
-      "domain": "flemmix.prof",
+      "homeUrl": "https://flemmix.casa/",
+      "searchUrl": "https://flemmix.casa//index.php?do=search&subaction=search&story={query}",
+      "domain": "flemmix.casa",
       "selectedByDefault": false
     },
     {
@@ -49,9 +49,9 @@
       "name": "1jour1film",
       "description": "Recherche Séries, Films.",
       "icon": "icons/1jour1film.png",
-      "homeUrl": "https://1jour1film0526.site/",
-      "searchUrl": "https://1jour1film0526.site/?s={query}",
-      "domain": "1jour1film0526.site",
+      "homeUrl": "https://1jour1film0526b.site/",
+      "searchUrl": "https://1jour1film0526b.site/?s={query}",
+      "domain": "1jour1film0526b.site",
       "selectedByDefault": false
     },
     {
